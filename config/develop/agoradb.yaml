@@ -1,0 +1,11 @@
+template_path: templates/mongodb.yaml
+stack_name: agoradb-develop
+parameters:
+  KeyPairName: 'agora'
+  VPC: 'vpc-e66bd19d'
+  PrimaryNodeSubnet: 'subnet-17b8934a'
+  Secondary0NodeSubnet: 'subnet-34392c50'
+  Secondary1NodeSubnet: 'subnet-aad9ec85'
+  BastionSecurityGroupID: 'sg-df2b4ba9'
+  ClusterReplicaSetCount: '1'
+  MongoDBAdminPassword: !ssm /agoradb-develop/MongoDBAdminPassword
