@@ -318,9 +318,6 @@ Resources:
         - Namespace: 'aws:autoscaling:launchconfiguration'
           OptionName: InstanceType
           Value: !Ref EC2InstanceType
-#        - Namespace: 'aws:autoscaling:launchconfiguration'
-#          OptionName: SecurityGroups
-#          Value: !Ref InstanceSecurityGroup
         - Namespace: 'aws:autoscaling:updatepolicy:rollingupdate'
           OptionName: RollingUpdateEnabled
           Value: true
@@ -458,39 +455,6 @@ Resources:
         -
           Endpoint: !Ref SnsNotificationEndpoint
           Protocol: "email"
-#  LoadBalancerSecurityGroup:
-#    Type: 'AWS::EC2::SecurityGroup'
-#    Properties:
-#      GroupDescription: Load Balancer Security Group
-#      VpcId: !ImportValue us-east-1-computevpc-VPCId
-#      SecurityGroupIngress:
-#        - CidrIp: 0.0.0.0/0
-#          FromPort: '443'
-#          ToPort: '443'
-#          IpProtocol: tcp
-#        - CidrIp: 0.0.0.0/0
-#          FromPort: '80'
-#          ToPort: '80'
-#          IpProtocol: tcp
-#      SecurityGroupEgress:
-#        - CidrIp: 0.0.0.0/0
-#          FromPort: '80'
-#          ToPort: '80'
-#          IpProtocol: tcp
-#  InstanceSecurityGroup:
-#    Type: 'AWS::EC2::SecurityGroup'
-#    Properties:
-#      GroupName: !Join
-#        - '-'
-#        - - !Ref 'AWS::StackName'
-#          - InstanceSecurityGroup
-#      GroupDescription: EC2 Security Group
-#      VpcId: !ImportValue us-east-1-computevpc-VPCId
-#      SecurityGroupIngress:
-#        - IpProtocol: tcp
-#          FromPort: '80'
-#          ToPort: '80'
-#          SourceSecurityGroupId: !Ref LoadBalancerSecurityGroup
 Outputs:
   S3AppDeployBucket:
     Value: !Ref S3AppDeployBucket
@@ -526,7 +490,3 @@ Outputs:
           - EndpointURL
     Export:
       Name: !Sub '${AWS::Region}-${AWS::StackName}-BeanstalkEnvironmentUrl'
-#  InstanceSecurityGroup:
-#    Value: !Ref InstanceSecurityGroup
-#    Export:
-#      Name: !Sub '${AWS::Region}-${AWS::StackName}-InstanceSecurityGroup'

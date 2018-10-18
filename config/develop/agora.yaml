@@ -1,14 +1,13 @@
 template_path: templates/beanstalk.yaml
 stack_name: agora-develop
 dependencies:
-  - develop/agoradb-develop
-  - common/agora-common
+  - agoradb-develop
+  - agora-common
 parameters:
   AppDeployBucket: 'org-sagebionetworks-agora-deployment-agora-develop'
   AppHealthcheckUrl: 'HTTP:80/about'
   AutoScalingMaxSize: '1'
   AutoScalingMinSize: '1'
-#  VpcId: 'vpc-e66bd19d'
   SnsBounceNotificationEndpoint: 'agora-develop-bounce-notifications@sagebase.org'
   SnsNotificationEndpoint: 'agora-develop@sagebase.org'
   EbSolutionStackName: '64bit Amazon Linux 2018.03 v4.5.4 running Node.js'
