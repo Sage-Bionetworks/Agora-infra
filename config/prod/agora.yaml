@@ -8,6 +8,7 @@ parameters:
   AppHealthcheckUrl: '/about'
   AutoScalingMaxSize: '6'
   AutoScalingMinSize: '3'
+  DISABLE_OPENCOLLECTIVE: 'true'
   EbHealthReportingSystem: 'enhanced'
   EbDeploymentPolicy: 'Immutable'
   EbRollingUpdateType: 'Immutable'
