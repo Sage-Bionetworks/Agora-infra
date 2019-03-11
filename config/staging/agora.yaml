@@ -8,7 +8,6 @@ parameters:
   AppHealthcheckUrl: '/about'
   AutoScalingMaxSize: '4'
   AutoScalingMinSize: '2'
-  DISABLE_OPENCOLLECTIVE: 'true'
   SnsBounceNotificationEndpoint: 'agora-staging-bounce-notifications@sagebase.org'
   SnsNotificationEndpoint: 'agora-staging@sagebase.org'
   EbSolutionStackName: '64bit Amazon Linux 2018.03 v4.5.4 running Node.js'

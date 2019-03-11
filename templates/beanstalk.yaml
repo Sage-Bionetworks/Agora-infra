@@ -16,9 +16,14 @@ Parameters:
   AutoScalingMinSize:
     Type: String
     Default: '1'
-  DISABLE_OPENCOLLECTIVE:
+  DisableOpencollective:
     Type: String
     Default: 'true'
+    Description: 'Disable donation request by Open Collective'
+    AllowedValues:
+      - true
+      - false
+    ConstraintDescription: 'Valid values are true or false'
   EbHealthReportingSystem:
     Type: String
     Default: basic
@@ -352,6 +357,9 @@ Resources:
         - Namespace: 'aws:elasticbeanstalk:application:environment'
           OptionName: APP_ENV
           Value: !Ref AppEnv
+        - Namespace: 'aws:elasticbeanstalk:application:environment'
+          OptionName: DISABLE_OPENCOLLECTIVE
+          Value: !Ref DisableOpencollective
   BeanstalkEnvironment:
     Type: 'AWS::ElasticBeanstalk::Environment'
     Properties:
