@@ -16,6 +16,9 @@ Parameters:
   AutoScalingMinSize:
     Type: String
     Default: '1'
+  DISABLE_OPENCOLLECTIVE:
+    Type: String
+    Defaul: 'true'
   EbHealthReportingSystem:
     Type: String
     Default: basic
