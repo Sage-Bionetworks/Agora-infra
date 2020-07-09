@@ -15,6 +15,6 @@ parameters:
   SnsNotificationEndpoint: 'agora-prod@sagebase.org'
   EbSolutionStackName: '64bit Amazon Linux 2018.03 v4.13.0 running Node.js'
   EC2InstanceType: 't3.medium'
-  EC2KeyName: 'toptal'
+  EC2KeyName: 'agora-access'
   MongodbHost: !stack_output_external agoradb-prod::PrimaryReplicaNodeIp
   MongodbAccessSecurityGroup: !stack_output_external agoradb-prod::MongoDBServerAccessSecurityGroup

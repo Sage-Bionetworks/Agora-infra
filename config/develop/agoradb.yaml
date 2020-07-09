@@ -1,7 +1,7 @@
 template_path: mongodb.yaml
 stack_name: agoradb-develop
 parameters:
-  KeyPairName: 'agora-travis'
+  KeyPairName: 'agora-access'
   VPC: !stack_output_external computevpc::VPCId
   PrimaryNodeSubnet: !stack_output_external computevpc::PrivateSubnet
   Secondary0NodeSubnet: !stack_output_external computevpc::PrivateSubnet1
