@@ -13,6 +13,6 @@ parameters:
   # Name of an existing VPC subnet to run the instance in
   VpcSubnet: "PublicSubnet"
   # Name of an existing EC2 KeyPair to enable SSH access to the instance
-  KeyName: "toptal"
+  KeyName: "agora-travis"
   # (Optional) ID of the base AMI (supported distros: AWS linux)
   AMIId: ami-003ed7eaef0321c8f     # AMI with mongo db tools
