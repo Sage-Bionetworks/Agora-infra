@@ -61,6 +61,7 @@ Resources:
       ImageId: !Ref AMIId
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyName
+      IamInstanceProfile: !Ref InstanceProfile
       NetworkInterfaces:
         - DeleteOnTermination: true
           DeviceIndex: "0"
@@ -86,6 +87,34 @@ Resources:
           Value: !Ref Project
         - Key: "OwnerEmail"
           Value: !Ref OwnerEmail
+        - Key: "ManagedInstanceMaintenanceTarget"
+          Value: "yes"
+        - Key: "PatchGroup"
+          Value: "prod-default"
+
+  InstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Path: /
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ssm.amazonaws.com #For maintenance service
+            Action:
+              - sts:AssumeRole
+
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Path: /
+      Roles:
+        - !Ref 'InstanceRole'
+
 Outputs:
   Ec2InstanceId:
     Value: !Ref Ec2Instance
