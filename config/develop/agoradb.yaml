@@ -1,7 +1,12 @@
 template_path: mongodb.yaml
 stack_name: agoradb-develop
+stack_tags:
+  Department: "amp-ad"
+  Project: "SysBio"
+  OwnerEmail: "it@sagebase.org"
 parameters:
   KeyPairName: 'agora-access'
+  VpcName: 'computevpc'
   VPC: !stack_output_external computevpc::VPCId
   PrimaryNodeSubnet: !stack_output_external computevpc::PrivateSubnet
   Secondary0NodeSubnet: !stack_output_external computevpc::PrivateSubnet1
@@ -9,3 +14,5 @@ parameters:
   BastionSecurityGroupID: !stack_output_external computevpc::VpnSecurityGroup
   ClusterReplicaSetCount: '1'
   MongoDBAdminPassword: !ssm /agora-develop/MongodbPassword
+  NodeInstanceType: 'm4.large'
+  MongoDBVersion: "4.0"
