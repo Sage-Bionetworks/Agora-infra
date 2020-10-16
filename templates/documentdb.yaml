@@ -81,7 +81,7 @@ Resources:
         audit_logs: "disabled"
         profiler: "enabled"
         profiler_sampling_rate: "1.0"
-        profiler_threshold_ms: "100"
+        profiler_threshold_ms: "50"
         change_stream_log_retention_duration: "10800"
         tls: "disabled"
         ttl_monitor: "disabled"
