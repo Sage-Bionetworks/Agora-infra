@@ -12,7 +12,7 @@ parameters:
   SnsBounceNotificationEndpoint: 'agora-prod-bounce-notifications@sagebase.org'
   SnsNotificationEndpoint: 'agora-prod@sagebase.org'
   EbSolutionStackName: '64bit Amazon Linux 2018.03 v4.13.0 running Node.js'
-  EC2InstanceType: 't3.medium'
+  EC2InstanceType: 't3.large'
   EC2KeyName: 'agora-access'
   MongodbHost: !stack_output_external agoradb-prod::PrimaryReplicaNodeIp
   MongodbAccessSecurityGroup: !stack_output_external agoradb-prod::MongoDBServerAccessSecurityGroup
